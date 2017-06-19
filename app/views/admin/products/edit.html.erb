@@ -16,6 +16,15 @@
     <%= f.input :quantity %>
   </div>
 
-  <%= f.submit "提交", data: {disable_with: "Submiting..."} %>
+  <% if @product.image.present? %>
+    <span>目前商品图</span> <br>
+    <%= image_tag(@product.image.thumb.url) %>
+  <% end %>
+
+  <div class="group">
+    <%= f.input :image, as: :file %>
+  </div>
+
+  <%= f.submit "更新", data: {disable_with: "Submiting..."} %>
 
 <% end %>
